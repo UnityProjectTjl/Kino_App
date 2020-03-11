@@ -1,38 +1,35 @@
-package de.threeyoungdevs.kinoapp.ui.notifications;
+package de.threeyoungdevs.kinoapp.ui.currentMovies;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import de.threeyoungdevs.kinoapp.R;
-import de.threeyoungdevs.kinoapp.adapter.ComingMovieAdapter;
 import de.threeyoungdevs.kinoapp.adapter.CurrentMovieAdapter;
 
-public class NotificationsFragment extends Fragment {
+public class CurrentMoviesFragment extends Fragment {
 
-    private NotificationsViewModel notificationsViewModel;
+    private DashboardViewModel dashboardViewModel;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        notificationsViewModel =
-                ViewModelProviders.of(this).get(NotificationsViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        dashboardViewModel =
+                ViewModelProviders.of(this).get(DashboardViewModel.class);
+        View root = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
-        recyclerView = (RecyclerView) root.findViewById(R.id.ComingMovieList);
+        recyclerView = (RecyclerView) root.findViewById(R.id.CurrentMovieList);
 
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
@@ -45,8 +42,9 @@ public class NotificationsFragment extends Fragment {
         String[] items = {"1", "2", "3", "1", "2", "3", "1", "2", "3", "1", "2", "3", "1", "2", "3"};
 
         // specify an adapter (see also next example)
-        mAdapter = new ComingMovieAdapter(items, getActivity());
+        mAdapter = new CurrentMovieAdapter(items, getActivity());
         recyclerView.setAdapter(mAdapter);
+
 
         return root;
     }

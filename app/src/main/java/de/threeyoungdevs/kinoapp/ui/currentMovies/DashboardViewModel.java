@@ -1,4 +1,4 @@
-package de.threeyoungdevs.kinoapp.ui.dashboard;
+package de.threeyoungdevs.kinoapp.ui.currentMovies;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
